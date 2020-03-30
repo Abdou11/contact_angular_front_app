@@ -1,0 +1,65 @@
+<div *ngIf="mode==1" class="starter-template panel panel-primary">
+    <div class="panel-heading">
+        Add Contact
+    </div>
+    <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nom</label>
+                <input type="text" required class="form-control" [(ngModel)]="contact.nom" name="nom" placeholder="Nom">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Prenom</label>
+                <input type="text" required class="form-control" [(ngModel)]="contact.prenom" name="prenom" placeholder="Prenom">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Email</label>
+                <input type="email" required email class="form-control" [(ngModel)]="contact.email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Telephone</label>
+                <input type="tel"  required class="form-control" [(ngModel)]="contact.tel" name="tel" placeholder="Telephone">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Date naissance</label>
+                <input type="date" required class="form-control" [(ngModel)]="contact.dateNaissance" name="dateNaissance"
+                    placeholder="Date naissance">
+            </div>
+            <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+<div *ngIf="mode==2" class="starter-template panel panel-primary">
+    <div class="panel-heading">
+        Confirmation
+    </div>
+    <div class="panel-body">
+        <form *ngIf="mode==2" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Id : </label>
+                <label for="formGroupExampleInput"> {{contact.id}}</label>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nom : </label>
+                <label for="formGroupExampleInput"> {{contact.nom}}</label>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Prenom : </label>
+                <label for="formGroupExampleInput"> {{contact.prenom}}</label>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Email : </label>
+                <label for="formGroupExampleInput"> {{contact.email}}</label>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Tel : </label>
+                <label for="formGroupExampleInput"> {{contact.tel}}</label>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Date naissance : </label>
+                <label for="formGroupExampleInput"> {{contact.dateNaissance}}</label>
+            </div>
+            <button type="submit" (click)="onModeChange()" class="btn btn-primary">Nouveau contact</button>
+        </form>
+    </div>
+</div>

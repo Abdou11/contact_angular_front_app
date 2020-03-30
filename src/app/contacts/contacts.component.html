@@ -1,0 +1,33 @@
+<div class="starter-template panel panel-primary">
+  <div class="panel-heading">
+    Contacts
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Date Naissance</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of listContact">
+          <th scope="row"> {{ contact.id }}</th>
+          <td> {{ contact.nom }}</td>
+          <td> {{ contact.prenom }}</td>
+          <td> {{ contact.email }}</td>
+          <td> {{ contact.dateNaissance }}</td>
+          <td>
+            <a class="btn btn-success" title="Edit" (click)="editContact(contact.id)" ><i class="fa fa-edit"></i></a>
+            <a class="btn btn-danger" title="Delete" (click)="deleteContact(contact)" ><i class="fa fa-trash"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
